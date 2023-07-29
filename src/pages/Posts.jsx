@@ -25,7 +25,7 @@ const Posts = () => {
         <input
           type="search"
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full rounded-md font-mono bg-black text-white border-2 border-cyan-200 focus:outline-none"
+          className="w-full rounded-md font-mono bg-black px-4 py-2 mt-3 text-white border-2 border-cyan-200 focus:outline-none"
           placeholder="Search across your blog.."
         />
       </div>
@@ -42,7 +42,7 @@ const Posts = () => {
               return (
                 <div key={i}>
                   <div className="w-full overflow-clip grid grid-cols-6 mb-6 text-white border-2 border-cyan-200 rounded-md">
-                    <div
+                    <Link to={`/postById/${val.id}`}
                       className="h-full w-full col-span-2 rounded-md bg-cyan-200 cursor-pointer"
                       style={{
                         backgroundImage: `url('http://localhost:3001/${val.image}')`,
@@ -62,7 +62,7 @@ const Posts = () => {
                           dangerouslySetInnerHTML={{ __html: val.description }}
                         />
                       </Link>
-                      <div className="flex">
+                      <div className="flex text-cyan-400 underline cursor-pointer">
                         <div>
                           <em>Alember Shreesh</em>
                         </div>

@@ -24,7 +24,7 @@ function Register() {
 
     return (
         <div className="bg-gradient-to-b from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%
-         h-screen grid justify-items-center">
+         h-screen w-screen -ml-10 grid justify-items-center">
             <Marquee className="text-9xl absolute overflow-hidden h-screen font-extrabold">
                 WIRE. WIRE. WIRE. WIRE. WIRE. WIRE. WIRE. WIRE. WIRE. WIRE. WIRE. WIRE. WIRE. WIRE. WIRE. WIRE. WIRE. WIRE. WIRE. WIRE. WIRE. WIRE. WIRE. WIRE. WIRE. WIRE
             </Marquee>

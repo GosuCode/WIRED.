@@ -12,7 +12,6 @@ const Layout = ({ children }) => {
     id: 0,
     status: false,
   });
-  const [search, setSearch] = useState("");
 
   useEffect(() => {
     axios
@@ -35,14 +34,14 @@ const Layout = ({ children }) => {
   }, []);
   return (
     <AuthContext.Provider
-      value={{ authState, setAuthState, search, setSearch }}
+      value={{ authState, setAuthState }}
     >
       <div className="flex px-10">
-        <div className="w-1/6">
+        <div className={`w-1/6 ${!authState.status && 'hidden'}`}>
           <Sidebar />
         </div>
         <div className="w-5/6">
-          <div className="flex justify-center">
+          <div className={`flex justify-center ${!authState.status && 'hidden'}`}>
             <Navbar />
           </div>
           <div>{children}</div>
