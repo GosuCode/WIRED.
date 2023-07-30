@@ -44,7 +44,7 @@ const Sidebar = () => {
     { name: "Dashboard", path: "/", icon: <LuLayoutDashboard /> },
     { name: "Posts", path: "/posts", icon: <BsPostcard /> },
     { name: "Users", path: "/", icon: <LuUsers /> },
-    { name: "Analytics", path: "/", icon: <TbBrandGoogleAnalytics /> },
+    { name: "Analytics", path: "/analytics", icon: <TbBrandGoogleAnalytics /> },
     { name: "ToDo", path: "/", icon: <RiTodoLine /> },
   ];
   return (

@@ -7,6 +7,7 @@ import Login from "./components/Authentication/Login";
 import LandingPage from "./pages/LandingPage";
 import Register from "./components/Authentication/Register";
 import SinglePage from "./pages/SinglePage";
+import Analytics from "./pages/Analytics";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/createPost" element={<CreatePost />} />
+          <Route path="/analytics" element={<Analytics />} />
           <Route path="/posts" element={<Posts />} />
           <Route path="/postById/:id" element={<SinglePage />} />
           <Route path="/login" element={<Login />} />
