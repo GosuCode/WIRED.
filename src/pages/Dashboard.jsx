@@ -1,5 +1,7 @@
 // import prism from "../assets/prism.png";
 
+import UserChart from "../components/charts/UserChart";
+
 const Dashboard = () => {
   const stats = [
     { Name: "Users", number: "12" },
@@ -23,8 +25,8 @@ const Dashboard = () => {
             );
           })}
         </div>
-        <div className="mt-20">
-
+        <div className="mt-20 h-[400px] ">
+          <UserChart />
           <div>
             <h2>Latest Posts</h2>
             {/* <div className="h-[200px] ">

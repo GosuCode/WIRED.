@@ -4,12 +4,14 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Marquee from "react-fast-marquee";
 import register from '../../assets/register.jpg'
+import { useNavigate } from 'react-router-dom'
 
 function Register() {
     const initialValues = {
         username: "",
         password: "",
     };
+    const navigate = useNavigate()
 
     const validationSchema = Yup.object().shape({
         username: Yup.string().min(3).max(15).required(),
@@ -19,6 +21,7 @@ function Register() {
     const onSubmit = (data) => {
         axios.post("http://localhost:3001/auth", data).then(() => {
             console.log(data);
+            navigate('/login')
         });
     };
 
