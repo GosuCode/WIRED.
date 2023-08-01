@@ -7,6 +7,7 @@ import { RiDeleteBin5Fill } from 'react-icons/ri'
 import { AiFillEdit } from 'react-icons/ai'
 import { toast, ToastContainer } from 'react-toastify'
 import axios from "axios"
+import moment from 'moment'
 
 const SinglePage = () => {
     const { id } = useParams();
@@ -68,6 +69,10 @@ const SinglePage = () => {
             });
     };
 
+    const formatCreatedAt = (timestamp) => {
+        return moment(timestamp).format("MMMM Do YYYY, h:mm:ss a");
+    };
+
     return (
         <div className='w-full grid place-items-center'>
             <div className="w-3/4 mt-16 md:mt-24 bg-white shadow-sm shadow-slate-400">
@@ -79,8 +84,8 @@ const SinglePage = () => {
                         <img src={user} alt="" className='h-14 rounded-full m-1 p-1' />
                     </div>
                     <div className='grid items-center py-3'>
-                        <div className='text-sm font-semibold'>{blog.username}</div>
-                        <span className='text-xs'>Jul 9 (13 mins ago)</span>
+                        <div className='text-sm font-semibold capitalize'>{blog.username}</div>
+                        <span className='text-xs'> {formatCreatedAt(blog.createdAt)}</span>
                     </div>
                 </div>
                 {authState.username === blog.username && (

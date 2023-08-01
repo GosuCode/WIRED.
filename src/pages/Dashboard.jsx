@@ -1,6 +1,7 @@
 // import prism from "../assets/prism.png";
 
 import UserChart from "../components/charts/UserChart";
+import moment from 'moment'
 
 const Dashboard = () => {
   const stats = [
@@ -9,6 +10,7 @@ const Dashboard = () => {
     { Name: "Likes", number: "200" },
     { Name: "Views", number: "245" },
   ];
+
   return (
     <div className="w-full grid place-items-center">
       <div className="w-[90%] mt-24">
@@ -27,11 +29,9 @@ const Dashboard = () => {
         </div>
         <div className="mt-20 h-[400px] ">
           <UserChart />
-          <div>
+          <div className="text-white">
             <h2>Latest Posts</h2>
-            {/* <div className="h-[200px] ">
-              <img src={prism} alt="prism" className="h-full w-full" />
-            </div> */}
+            <b>{moment().format('MMMM Do YYYY, h:mm:ss a')}</b>
             <h1 className="text-9xl">hello</h1>
           </div>
         </div>

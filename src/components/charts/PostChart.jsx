@@ -3,15 +3,16 @@ import { Line } from 'react-chartjs-2'
 
 ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Legend, Tooltip)
 
-const UserChart = () => {
+const PostChart = () => {
     const data = {
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         datasets: [{
-            label: "Users",
-            data: [2, 4, 7, 5, 8, 6, 7],
+            label: "Posts",
+            data: [20, 42, 71, 52, 28, 56, 67],
             backgroundColor: 'yellow',
             borderColor: 'cyan',
             pointBorderColor: 'yellow',
+            // fill: true,
             tension: 0.4
         }]
     }
@@ -22,7 +23,7 @@ const UserChart = () => {
         },
         scales: {
             y: {
-                beginAtZero: true,
+
             }
         }
     }
@@ -36,4 +37,4 @@ const UserChart = () => {
     )
 }
 
-export default UserChart
+export default PostChart

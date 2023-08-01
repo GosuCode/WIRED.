@@ -10,12 +10,14 @@ function Register() {
     const initialValues = {
         username: "",
         password: "",
+        email: "",
     };
     const navigate = useNavigate()
 
     const validationSchema = Yup.object().shape({
         username: Yup.string().min(3).max(15).required(),
-        password: Yup.string().min(4).max(20).required(),
+        password: Yup.string().min(8).max(20).required(),
+        email: Yup.string().email().required("Email is required!"),
     });
 
     const onSubmit = (data) => {
@@ -56,7 +58,7 @@ function Register() {
                             className="shadow-sm h-10 shadow-slate-400 px-8 border-b-2 focus:outline-none border-blue-500"
                         />
                         <p className="h-1">
-                            <ErrorMessage name="username" component="span" className="text-rose-500" />
+                            <ErrorMessage name="email" component="span" className="text-rose-500" />
                         </p>
 
                         <Field

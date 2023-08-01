@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import moment from "moment";
 
 const Posts = () => {
   const [blogs, setBlogs] = useState([]);
@@ -19,6 +20,10 @@ const Posts = () => {
 
     fetchData();
   }, []);
+
+  const formatCreatedAt = (timestamp) => {
+    return moment(timestamp).format("MMMM Do YYYY");
+  };
   return (
     <div className="py-20 px-24">
       <div className=" w-[400px]">
@@ -52,20 +57,17 @@ const Posts = () => {
                     />
                     <div className="px-3 py-3 col-start-3 col-span-4">
                       <div className="mb-1">
-                        <span>Business, Travel</span>{" "}
-                        <span>- July 2, 2023</span>
+                        <h2 className="mb-4 font-bold text-xl">{val.title}</h2>
+                        <span className="font-mono text-sm text-slate-300">{formatCreatedAt(val.createdAt)}</span>
                       </div>
-                      <h2 className="mb-4 font-bold">{val.title}</h2>
                       <Link to={`/postById/${val.id}`}>
                         <div
                           className="mb-4 line-clamp-2"
                           dangerouslySetInnerHTML={{ __html: val.description }}
                         />
                       </Link>
-                      <div className="flex text-cyan-400 underline cursor-pointer">
-                        <div>
-                          <em>Alember Shreesh</em>
-                        </div>
+                      <div className="flex text-cyan-400 underline cursor-pointer capitalize">
+                        <strong><em>{val.username}</em></strong>
                       </div>
                     </div>
                   </div>
