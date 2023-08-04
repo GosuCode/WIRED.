@@ -1,16 +1,31 @@
-// import prism from "../assets/prism.png";
-
+import { useEffect, useState } from "react";
 import UserChart from "../components/charts/UserChart";
-import moment from 'moment'
+import axios from "axios";
 
 const Dashboard = () => {
+
   const stats = [
-    { Name: "Users", number: "12" },
+    { Name: "Users", number: `12` },
     { Name: "Post", number: "123" },
     { Name: "Likes", number: "200" },
     { Name: "Views", number: "245" },
   ];
 
+  const [blog, setBlog] = useState('');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:3001/posts");
+        // await new Promise((resolve) => setTimeout(resolve, 1000));
+        setBlog(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, []);
   return (
     <div className="w-full grid place-items-center">
       <div className="w-[90%] mt-24">
@@ -31,8 +46,20 @@ const Dashboard = () => {
           <UserChart />
           <div className="text-white">
             <h2>Latest Posts</h2>
-            <b>{moment().format('MMMM Do YYYY, h:mm:ss a')}</b>
-            <h1 className="text-9xl">hello</h1>
+            <div className="text-white bg-cyan-200 text-xl h-[500px] w-[500px]">
+              <div className="h-[400px]">
+                <img src={blog.length > 0 && blog[blog.length - 1].image.path} alt="image" className="w-full h-full" />
+              </div>
+              <div>
+                {blog.length > 0 && blog[blog.length - 1].title}
+              </div>
+              <div>
+                {blog.length > 0 && blog[blog.length - 1].user}
+              </div>
+              <div className="line-clamp-2">
+                {blog.length > 0 && blog[blog.length - 1].description}
+              </div>
+            </div>
           </div>
         </div>
       </div>

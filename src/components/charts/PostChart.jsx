@@ -8,7 +8,7 @@ const PostChart = () => {
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         datasets: [{
             label: "Posts",
-            data: [20, 42, 71, 52, 28, 56, 67],
+            data: [20, 42, 60, 52, 40, 56, 67],
             backgroundColor: 'yellow',
             borderColor: 'cyan',
             pointBorderColor: 'yellow',
