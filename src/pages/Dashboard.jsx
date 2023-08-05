@@ -48,7 +48,7 @@ const Dashboard = () => {
             <h2>Latest Posts</h2>
             <div className="text-white bg-cyan-200 text-xl h-[500px] w-[500px]">
               <div className="h-[400px]">
-                <img src={blog.length > 0 && blog[blog.length - 1].image.path} alt="image" className="w-full h-full" />
+                <img src={`http://localhost:3001/${blog.length > 0 && blog[blog.length - 1].image}`} alt="image" className="w-full h-full" />
               </div>
               <div>
                 {blog.length > 0 && blog[blog.length - 1].title}
