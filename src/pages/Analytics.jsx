@@ -1,14 +1,65 @@
+import { useEffect, useState } from "react";
 import PostChart from "../components/charts/PostChart"
 import UserChart from "../components/charts/UserChart"
+import axios from 'axios'
 
 const Analytics = () => {
 
+    const [blogs, setBlogs] = useState('');
+    const [users, setUsers] = useState([]);
+    const [comments, setComments] = useState([]);
+    const [likes, setLikes] = useState([]);
+
+    const fetchUsers = async () => {
+        try {
+            const response = await axios.get("http://localhost:3001/auth/listOfUsers");
+            setUsers(response.data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const fetchBlogs = async () => {
+        try {
+            const response = await axios.get("http://localhost:3001/posts");
+            setBlogs(response.data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const fetchComments = async () => {
+        try {
+            const response = await axios.get("http://localhost:3001/comments");
+            setComments(response.data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const fetchLikes = async () => {
+        try {
+            const response = await axios.get("http://localhost:3001/likes/listOfLikes");
+            setLikes(response.data);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    useEffect(() => {
+        fetchBlogs();
+        fetchUsers();
+        fetchComments();
+        fetchLikes();
+    }, [])
+
+
     const stats = [
-        { Name: "Users", number: `12` },
-        { Name: "Posts", number: "123" },
-        { Name: "Likes", number: "200" },
-        { Name: "Views", number: "245" },
-        { Name: "Comments", number: "502" },
+        { Name: "Users", number: users.length },
+        { Name: "Post", number: blogs.length },
+        { Name: "Likes", number: likes.length },
+        { Name: "Views", number: "97" },
+        { Name: "Comments", number: comments.length },
     ];
 
     return (

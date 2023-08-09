@@ -6,7 +6,7 @@ const Dashboard = () => {
   const [blog, setBlog] = useState('');
   const [users, setUsers] = useState([]);
 
-  const fetchUser = async () => {
+  const fetchUsers = async () => {
     try {
       const response = await axios.get("http://localhost:3001/auth/listOfUsers");
       setUsers(response.data);
@@ -15,7 +15,7 @@ const Dashboard = () => {
     }
   }
 
-  const fetchData = async () => {
+  const fetchBlogs = async () => {
     try {
       const response = await axios.get("http://localhost:3001/posts");
       setBlog(response.data);
@@ -26,8 +26,8 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-    fetchData();
-    fetchUser();
+    fetchBlogs();
+    fetchUsers();
   }, [])
 
   const formatCreatedAt = (timestamp) => {
@@ -60,7 +60,7 @@ const Dashboard = () => {
         </div>
         <div className="mt-20 grid grid-cols-2 gap-10">
 
-          <div className="text-white border-2 border-cyan-200">
+          <div className="text-white border-2 h-[580px] border-cyan-200 rounded-md" >
             <h2 className="text-2xl text-center p-2">Latest Posts</h2>
             <div className="text-white h-full w-full px-6 py-4">
               <div className="h-2/4 w-full">
@@ -83,7 +83,7 @@ const Dashboard = () => {
             </div>
           </div>
 
-          <div className="h-[100%] w-full px-14 pb-20 border-2 rounded-md border-cyan-200 p-2">
+          <div className="h-[580px] w-full px-14 pb-20 border-2 rounded-md border-cyan-200 p-2 overflow-y-scroll scrollbar">
             <h1 className="text-white text-xl p-4 text-center">List of Users</h1>
             <div className="text-white">
               <div className="flex justify-between text-lg">
