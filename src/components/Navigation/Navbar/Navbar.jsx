@@ -6,7 +6,7 @@ import { AuthContext } from "../../../helpers/AuthContext";
 const Navbar = () => {
   const { authState } = useContext(AuthContext)
   return (
-    <nav className="flex mt-2 fixed items-center p-3 border-2 rounded-2xl border-blue-200 w-9/12 justify-between bg-[rgba(0,0,0,0.6)] backdrop-blur-sm text-white">
+    <nav className="flex mt-2 z-10 fixed items-center p-3 border-2 rounded-2xl border-blue-200 w-9/12 justify-between bg-[rgba(0,0,0,0.6)] backdrop-blur-sm text-white">
       <Link to={'/'} className="font-semibold text-lg">Dashboard</Link>
       <div className="flex">
         {authState.status && (

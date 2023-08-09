@@ -21,9 +21,12 @@ function Register() {
     });
 
     const onSubmit = (data) => {
-        axios.post("http://localhost:3001/auth", data).then(() => {
-            console.log(data);
-            navigate('/login')
+        axios.post("http://localhost:3001/auth", data).then((response) => {
+            if (response.status === 400) {
+                console.log(response.data, 'no entry boy');
+            } else {
+                navigate("/login");
+            }
         });
     };
 

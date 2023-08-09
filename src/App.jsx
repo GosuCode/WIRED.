@@ -9,6 +9,8 @@ import Register from "./components/Authentication/Register";
 import SinglePage from "./pages/SinglePage";
 import Analytics from "./pages/Analytics";
 import UpdatePost from "./pages/UpdatePost";
+import "react-toastify/dist/ReactToastify.css";
+import Users from "./pages/Users";
 
 function App() {
   return (
@@ -20,6 +22,7 @@ function App() {
           <Route path="/updatePost/:id" element={<UpdatePost />} />
           <Route path="/analytics" element={<Analytics />} />
           <Route path="/posts" element={<Posts />} />
+          <Route path="/users" element={<Users />} />
           <Route path="/postById/:id" element={<SinglePage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />

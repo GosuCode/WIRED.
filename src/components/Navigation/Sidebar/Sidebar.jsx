@@ -43,12 +43,12 @@ const Sidebar = () => {
   const sideBarData = [
     { name: "Dashboard", path: "/", icon: <LuLayoutDashboard /> },
     { name: "Posts", path: "/posts", icon: <BsPostcard /> },
-    { name: "Users", path: "/", icon: <LuUsers /> },
+    { name: "Users", path: "/users", icon: <LuUsers /> },
     { name: "Analytics", path: "/analytics", icon: <TbBrandGoogleAnalytics /> },
     { name: "ToDo", path: "/", icon: <RiTodoLine /> },
   ];
   return (
-    <div className="flex-col text-white border-r-2 border-blue-200 w-1/6 h-screen fixed">
+    <div className="flex-col text-white border-r-2 border-blue-200 w-1/6 h-[100%] fixed">
       <div className="w-full grid place-items-center mt-4">
         <img src={react} alt="" />
       </div>

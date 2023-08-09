@@ -120,57 +120,60 @@ const SinglePage = () => {
                     <section className="mb-4 font-bold text-lg">
                         <h2>Top comments </h2>
                     </section>
-                    <div className="">
-                        <div className='flex mb-4'>
-                            <span>
-                                <img src={user} alt="" className='h-14 rounded-full m-1 p-1' />
-                            </span>
-                            <div className="mb-3">
-                                <input name="" id="" cols="80" rows="2"
-                                    className='focus:outline-none border-2 focus:border-blue-500 rounded-lg text-lg md:w-[400px] w-[75%] md:p-1'
-                                    placeholder='Add a comment'
-                                    autoComplete="off"
-                                    value={newComment}
-                                    onChange={(event) => {
-                                        setNewComment(event.target.value);
-                                    }} />
-                                <button onClick={addComment} className='shadow-sm hover:shadow-slate-400 border border-blue-500 font-bold py-1 ml-6 px-4 rounded-md'> Add Comment</button>
-                            </div>
-                        </div>
-                        {comments.map((val, key) => {
-                            return (
-                                <div className='grid grid-cols-12 items-center' key={key}>
-                                    <span className='col-start-1 col-span-2 md:col-span-1'>
-                                        <img src={user} alt="" className='h-14 rounded-full m-1 p-1' />
-                                    </span>
-                                    <div className='col-start-3 md:col-start-2 col-span-full p-4'>
-                                        <div>
-                                            <button className='text-sm font-semibold'>{val.username}</button>
-                                        </div>
-                                        <div className='px-3 mb-4 text-sm flex justify-between'>
-                                            <p>
-                                                {val.commentBody}
-                                            </p>
-                                            {authState.username === val.username && (
-                                                <>
-                                                    <button
-                                                        onClick={() => {
-                                                            deleteComment(val.id);
-                                                        }}
-                                                        className='text-xl'
-                                                    >
-                                                        <MdDeleteForever className="text-red-400" />
-                                                    </button>
-                                                </>
-                                            )}
-                                        </div>
-                                        <hr />
-                                    </div>
-                                    <ToastContainer />
+                    <>
+                        <div className="">
+                            <div className='flex mb-4'>
+                                <span className=' capitalize bg-purple-700 text-xl text-white rounded-full h-10 w-10 grid place-items-center m-1 p-1' >
+                                    {authState.username.charAt(0)}
+                                </span>
+                                <div className="mb-3">
+                                    <input name="" id="" cols="80" rows="2"
+                                        className='focus:outline-none border-2 focus:border-blue-500 rounded-lg text-lg md:w-[400px] w-[75%] md:p-1'
+                                        placeholder='Add a comment'
+                                        autoComplete="off"
+                                        value={newComment}
+                                        onChange={(event) => {
+                                            setNewComment(event.target.value);
+                                        }} />
+                                    <button onClick={addComment} className='shadow-sm hover:shadow-slate-400 border border-blue-500 font-bold py-1 ml-6 px-4 rounded-md'> Add Comment</button>
                                 </div>
-                            )
-                        })}
-                    </div>
+                            </div>
+                            {comments.map((val, key) => {
+                                return (
+                                    <div className='grid grid-cols-12 items-center' key={key}>
+                                        <span className='col-start-1 col-span-2 md:col-span-1 capitalize bg-purple-700 text-xl text-white rounded-full h-10 w-10 grid place-items-center'>
+                                            {val.username.charAt(0)}
+                                        </span>
+                                        <div className='col-start-3 md:col-start-2 col-span-full p-4'>
+                                            <div>
+                                                <button className='text-sm font-semibold capitalize'>{val.username}</button>
+                                            </div>
+                                            <div className='px-3 mb-4 text-sm flex justify-between'>
+                                                <p>
+                                                    {val.commentBody}
+                                                </p>
+                                                {authState.username === val.username && (
+                                                    <>
+                                                        <button
+                                                            onClick={() => {
+                                                                deleteComment(val.id);
+                                                            }}
+                                                            className='text-xl'
+                                                        >
+                                                            <MdDeleteForever className="text-red-400" />
+                                                        </button>
+                                                    </>
+                                                )}
+                                            </div>
+                                            <hr />
+                                        </div>
+                                        <ToastContainer />
+                                    </div>
+                                )
+                            })}
+                        </div>
+
+                    </>
                 </div>
             </div>
         </div>
