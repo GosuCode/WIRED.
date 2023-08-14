@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import PostChart from "../components/charts/PostChart"
 import UserChart from "../components/charts/UserChart"
 import axios from 'axios'
+import DoughnutChart from "../components/charts/DoughnutChart";
 
 const Analytics = () => {
 
@@ -76,6 +77,9 @@ const Analytics = () => {
                         </div>
                     );
                 })}
+            </div>
+            <div className="w-full grid place-items-center pt-10">
+                <DoughnutChart />
             </div>
             <div className="mt-20 h-[450px] w-[1000px] px-14 pb-20 border-2 rounded-md border-cyan-200">
                 <h1 className="text-white text-xl">Users</h1>
