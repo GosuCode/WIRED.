@@ -18,14 +18,26 @@ const PostChart = () => {
     }
 
     const options = {
-        Plugins: {
-            Legend: true
+        plugins: {
+            legend: {
+                labels: {
+                    color: 'white'
+                }
+            }
         },
         scales: {
             y: {
-
+                beginAtZero: true,
+                ticks: {
+                    color: 'white' // Set the y-axis tick color to white
+                }
+            },
+            x: {
+                ticks: {
+                    color: 'white' // Set the x-axis tick color to white
+                }
             }
-        }
+        },
     }
 
     return (

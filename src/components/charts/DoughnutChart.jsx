@@ -22,7 +22,7 @@ const DoughnutChart = () => {
         ],
         datasets: [{
             label: 'WIRE',
-            data: [300, 50, 100],
+            data: [8, 17, 10, 11],
             backgroundColor: [
                 'blue',
                 'red',
@@ -34,6 +34,13 @@ const DoughnutChart = () => {
     };
 
     const options = {
+        plugins: {
+            legend: {
+                labels: {
+                    color: 'white'
+                }
+            }
+        }
     }
 
     return (

@@ -7,7 +7,13 @@ import { useContext, useState } from 'react'
 import { AuthContext } from "../helpers/AuthContext"
 
 const validationSchema = yup.object().shape({
-  title: yup.string().required('Title is required.'),
+  title: yup.string().required('Title is required.')
+    .test('max-description-words', 'Description should not exceed 20 words', (value) => {
+      if (!value) return true; // Allow empty input
+
+      const words = value.trim().split(/\s+/); // Split by whitespace to count words
+      return words.length <= 20;
+    }),
   description: yup.string()
     .required('Description is required.')
     .test('max-description-words', 'Description should not exceed 1000 words', (value) => {
