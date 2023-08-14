@@ -65,7 +65,7 @@ const SinglePage = () => {
                 headers: { accessToken: localStorage.getItem("accessToken") },
             })
             .then(() => {
-                navigate("/");
+                navigate("/posts");
             });
     };
 

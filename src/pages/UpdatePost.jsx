@@ -57,7 +57,7 @@ const UpdatePost = () => {
     const initialValues = {
         title: location.state.title,
         description: location.state.description,
-        image: [],
+        image: '',
         username: `${authState.username}`
     }
     return (
@@ -84,7 +84,7 @@ const UpdatePost = () => {
                                         src={
                                             showimage
                                                 ? URL.createObjectURL(showimage)
-                                                : ""
+                                                : `http://localhost:3001/${location.state.image}`
                                         }
                                         width={200}
                                         alt=""

@@ -5,6 +5,8 @@ import moment from 'moment'
 const Dashboard = () => {
   const [blog, setBlog] = useState('');
   const [users, setUsers] = useState([]);
+  const [comments, setComments] = useState([]);
+  const [likes, setLikes] = useState([]);
 
   const fetchUsers = async () => {
     try {
@@ -24,9 +26,29 @@ const Dashboard = () => {
     }
   };
 
+  const fetchComments = async () => {
+    try {
+      const response = await axios.get("http://localhost:3001/comments");
+      setComments(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const fetchLikes = async () => {
+    try {
+      const response = await axios.get("http://localhost:3001/likes/listOfLikes");
+      setLikes(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     fetchBlogs();
     fetchUsers();
+    fetchLikes();
+    fetchComments();
   }, [])
 
   const formatCreatedAt = (timestamp) => {
@@ -37,8 +59,8 @@ const Dashboard = () => {
   const stats = [
     { Name: "Users", number: users.length },
     { Name: "Post", number: blog.length },
-    { Name: "Likes", number: blog.length },
-    { Name: "Views", number: "245" },
+    { Name: "Likes", number: likes.length },
+    { Name: "Comments", number: comments.length },
   ];
 
   return (

@@ -8,7 +8,8 @@ import { AuthContext } from "../helpers/AuthContext"
 
 const validationSchema = yup.object().shape({
   title: yup.string().required('Title is required.'),
-  description: yup.string().required('Description is required.')
+  description: yup.string()
+    .required('Description is required.')
 })
 
 
@@ -17,6 +18,8 @@ const CreatePost = () => {
   const [newImage, setImage] = useState([]);
   const { authState } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  const MAX_FILE_SIZE = 5000000;
 
   const handleImageUpload = (event) => {
     setShowImage(event.target.files[0]);
@@ -29,6 +32,11 @@ const CreatePost = () => {
     formData.append("description", value.description);
     formData.append("username", `${authState.username}`);
     for (let i = 0; i < newImage.length; i++) {
+      const image = newImage[i];
+      if (image.size > MAX_FILE_SIZE) {
+        toast.error("Image size exceeds 5MB");
+        return; // Stop further processing
+      }
       formData.append("image", newImage[i]);
     }
     console.log(newImage);
@@ -68,18 +76,18 @@ const CreatePost = () => {
               className="col-start-2 col-span-7">
               <div className=' h-[600px] mt-20 bg-white w-full md:w-[1000px] px-16 py-8 rounded-md shadow-md'>
                 <div className='mb-5 flex h-[100px]'>
-                  <Field                       //Input field
+                  <input
+                    title='Choose a file please'
                     type='file'
                     name='image'
-                    accept=".png,.jpg,.jpeg,.gif"
-                    multiple
+                    accept=".png,.jpg,.jpeg"
                     onChange={(e) => handleImageUpload(e)}
                   />
                   <img
                     src={
                       showimage
                         ? URL.createObjectURL(showimage)
-                        : ""
+                        : ``
                     }
                     width={200}
                     alt=""
