@@ -76,8 +76,8 @@ const Dashboard = () => {
                   {blog.length > 0 && formatCreatedAt(blog[blog.length - 1].createdAt)}
                 </span>
               </div>
-              <div className="line-clamp-4 font-mono mt-5">
-                {blog.length > 0 && blog[blog.length - 1].description}
+              <div className="line-clamp-4 font-mono mt-5"
+                dangerouslySetInnerHTML={{ __html: blog.length > 0 && blog[blog.length - 1].description }}>
               </div>
             </div>
           </div>
