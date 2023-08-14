@@ -11,6 +11,7 @@ import Analytics from "./pages/Analytics";
 import UpdatePost from "./pages/UpdatePost";
 import "react-toastify/dist/ReactToastify.css";
 import Users from "./pages/Users";
+import TodoList from "./pages/TodoList";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/analytics" element={<Analytics />} />
           <Route path="/posts" element={<Posts />} />
           <Route path="/users" element={<Users />} />
+          <Route path="/todoList" element={<TodoList />} />
           <Route path="/postById/:id" element={<SinglePage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />

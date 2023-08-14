@@ -45,7 +45,7 @@ const Sidebar = () => {
     { name: "Posts", path: "/posts", icon: <BsPostcard /> },
     { name: "Users", path: "/users", icon: <LuUsers /> },
     { name: "Analytics", path: "/analytics", icon: <TbBrandGoogleAnalytics /> },
-    { name: "ToDo", path: "/", icon: <RiTodoLine /> },
+    { name: "ToDo", path: "/todoList", icon: <RiTodoLine /> },
   ];
   return (
     <div className="flex-col text-white border-r-2 border-blue-200 w-1/6 h-[100%] fixed">
