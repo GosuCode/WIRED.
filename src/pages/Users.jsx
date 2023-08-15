@@ -3,11 +3,15 @@ import { useState, useEffect } from "react";
 import moment from 'moment'
 import axios from 'axios'
 import UserSkeleton from "../components/UI/UserSkeleton";
+import { useContext } from "react";
+import { AuthContext } from "../helpers/AuthContext";
+import { MdDelete } from 'react-icons/md'
 
 const Users = () => {
   const [users, setUsers] = useState([]);
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(true);
+  const { authState } = useContext(AuthContext);
 
   const fetchUsers = async () => {
     try {
@@ -72,6 +76,12 @@ const Users = () => {
                               </span>
                             </div>
                             <span className='pt-2'>{formatCreatedAt(val.createdAt)}</span>
+                            {authState.email === `shreeshalember@gmail.com` ? (
+                              <span className="text-red-700 text-xl">
+                                <MdDelete />
+                              </span>)
+                              : ''}
+
                           </div>
                           <hr />
                         </div>

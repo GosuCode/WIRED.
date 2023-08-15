@@ -11,6 +11,7 @@ const Layout = ({ children }) => {
     username: "",
     id: 0,
     status: false,
+    email: ""
   });
 
   useEffect(() => {
@@ -26,6 +27,7 @@ const Layout = ({ children }) => {
         } else {
           setAuthState({
             username: response.data.username,
+            email: response.data.email,
             id: response.data.id,
             status: true,
           });

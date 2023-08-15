@@ -48,7 +48,7 @@ function Login() {
                             setEmail(event.target.value);
                         }}
                         autoComplete="off"
-                        placeholder="Username"
+                        placeholder="Email"
                         className="shadow-sm h-10 shadow-slate-400 px-8 border-b-2 focus:outline-none border-blue-500"
                     />
                     <input
