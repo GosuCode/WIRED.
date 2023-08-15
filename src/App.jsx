@@ -12,6 +12,7 @@ import UpdatePost from "./pages/UpdatePost";
 import "react-toastify/dist/ReactToastify.css";
 import Users from "./pages/Users";
 import TodoList from "./pages/TodoList";
+import SingleUser from "./pages/SingleUser";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/users" element={<Users />} />
           <Route path="/todoList" element={<TodoList />} />
           <Route path="/postById/:id" element={<SinglePage />} />
+          <Route path="/userById/:id" element={<SingleUser />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/landingPage" element={<LandingPage />} />

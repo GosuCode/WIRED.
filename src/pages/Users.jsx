@@ -3,15 +3,13 @@ import { useState, useEffect } from "react";
 import moment from 'moment'
 import axios from 'axios'
 import UserSkeleton from "../components/UI/UserSkeleton";
-import { useContext } from "react";
-import { AuthContext } from "../helpers/AuthContext";
-import { MdDelete } from 'react-icons/md'
+import { Link } from 'react-router-dom'
+
 
 const Users = () => {
   const [users, setUsers] = useState([]);
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(true);
-  const { authState } = useContext(AuthContext);
 
   const fetchUsers = async () => {
     try {
@@ -71,17 +69,11 @@ const Users = () => {
                               <div className="capitalize text-xl pt-2">{val.username}</div>
                             </div>
                             <div className="grid place-items-center">
-                              <span>
+                              <Link to={`/userById/${val.id}`}>
                                 {val.email}
-                              </span>
+                              </Link>
                             </div>
                             <span className='pt-2'>{formatCreatedAt(val.createdAt)}</span>
-                            {authState.email === `shreeshalember@gmail.com` ? (
-                              <span className="text-red-700 text-xl">
-                                <MdDelete />
-                              </span>)
-                              : ''}
-
                           </div>
                           <hr />
                         </div>
