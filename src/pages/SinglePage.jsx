@@ -88,20 +88,22 @@ const SinglePage = () => {
                         <span className='text-xs'> {formatCreatedAt(blog.createdAt)}</span>
                     </div>
                 </div>
-                {authState.username === blog.username && (
-                    <div className='flex justify-between px-20 items-center'>
-                        <button className='text-red-500 md:text-2xl grid items-center'
-                            onClick={() => {
-                                deletePost(blog.id);
-                            }}
-                        >
-                            <RiDeleteBin5Fill />
-                        </button>
-                        <Link to={`/updatePost/${blog.id}`} state={blog}>
-                            <AiFillEdit className='text-purple-600 md:text-2xl' />
-                        </Link>
-                    </div>
-                )}
+                {(
+                    authState.email === 'shreeshalember@gmail.com' ||
+                    authState.username === blog.username) && (
+                        <div className='flex justify-between px-20 items-center'>
+                            <button className='text-red-500 md:text-2xl grid items-center'
+                                onClick={() => {
+                                    deletePost(blog.id);
+                                }}
+                            >
+                                <RiDeleteBin5Fill />
+                            </button>
+                            <Link to={`/updatePost/${blog.id}`} state={blog}>
+                                <AiFillEdit className='text-purple-600 md:text-2xl' />
+                            </Link>
+                        </div>
+                    )}
                 <div className='mt-8'>
                     <div className='pl-10'>
                         <h1 className='font-extrabold text-xl md:text-4xl font-sans'>
