@@ -48,7 +48,7 @@ const Sidebar = () => {
     { name: "ToDo", path: "/todoList", icon: <RiTodoLine /> },
   ];
   return (
-    <div className="flex-col text-white border-r-2 border-blue-200 w-1/6 h-[100%] fixed">
+    <div className="flex-col text-white w-1/6 h-[100%] fixed">
       <div className="w-full grid place-items-center mt-4">
         <img src={react} alt="" />
       </div>
@@ -75,7 +75,7 @@ const Sidebar = () => {
           </div>
         );
       })}
-      <div className="group md:mt-48 flex mt-5 lg:w-11/12 h-10 cursor-pointer border-2 md:hover:border-cyan-100 rounded-md active:bg-gray-800">
+      <div className="group md:mt-32 flex lg:w-11/12 h-10 cursor-pointer border-2 md:hover:border-cyan-100 rounded-md active:bg-gray-800">
         <div
           className={`grid items-center px-2 text-2xl rounded-md shadow-md shadow-cyan-200
                         transition ease-in-out delay-75 group-hover:-translate-y-1 group-hover:scale-100 duration-300`}>
